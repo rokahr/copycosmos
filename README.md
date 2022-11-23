@@ -36,8 +36,8 @@ The create container functions requires the same payload as the above mentioned 
 ## The pipeline
 As described in the intro, the pipeline first deletes a container, recreated a container with the correct partitionKey and hydrates the data afterwards. In a nutshell, the pipeline looks like that:
 
-![pipeline](images\overview.png)
+![pipeline](images/overview.png)
 
 In the respective Web activities, the calls to the Azure Function are handled.
 For delete:
-![delete](images\delete.png)
+![delete](images/delete.png)
