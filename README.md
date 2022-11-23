@@ -55,3 +55,9 @@ After this, you'll just have to call a simple copy activite that copies the whol
 ![copy](images/copy.png)
 
 If you're not familiar with this process, have a look at the following [documentation](https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-cosmos-db?tabs=data-factory)
+
+Once the pipeline is established, you likely want to tune the performance of the copy activity. To do so, you can work with two different parameters on the Sink side:
+- writeBatchSize
+- Concurrency
+
+It's recommended to have look at these guides: [Copy Activity Performance](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-performance) and [Bulk executor](https://learn.microsoft.com/en-us/azure/cosmos-db/bulk-executor-overview#how-does-the-bulk-executor-operate)
