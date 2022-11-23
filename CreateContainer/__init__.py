@@ -19,7 +19,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     client = CosmosClient(url, key,consistency_level="Session")
     database_name = db
     database = client.get_database_client(database=database_name)   
-    
-    database.create_container(id=container, partition_key=PartitionKey(path=partitionKey))
-
+    try:
+        database.create_container(id=container, partition_key=PartitionKey(path=partitionKey))
+    except:
+        return func.HttpResponse(body="Container could not be deleted, does it exist?", status_code=200)
     return func.HttpResponse(body="Created Container", status_code=200)
