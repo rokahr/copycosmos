@@ -13,14 +13,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     url = req_body.get('url')
     key = req_body.get('key')
     db = req_body.get('db')
-    container = req_body.get('container')
 
     client = CosmosClient(url, key,consistency_level="Session")
-    database_name = db
-    database = client.get_database_client(database=database_name)   
     try:
-        database.delete_container(container=container)
+        client.create_database_if_not_exists(db)
     except:
-        return func.HttpResponse(body="Container could not be deleted. Does container exist?", status_code=200)
-
-    return func.HttpResponse(body="Deleted Container", status_code=200)
+        return func.HttpResponse(body="Database could not be deleted, does it exist?", status_code=200)
+    return func.HttpResponse(body="Created Container", status_code=200)
