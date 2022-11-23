@@ -39,5 +39,15 @@ As described in the intro, the pipeline first deletes a container, recreated a c
 ![pipeline](images/overview.png)
 
 In the respective Web activities, the calls to the Azure Function are handled.
+
 For delete:
 ![delete](images/delete.png)
+
+Where the url must point to your Azure Function with the DELETE url
+
+For creating a new container:
+![create](images/create.png)
+
+Where the url must point to your Azure Function with the CREATE url
+
+After this, you'll just have to call a simple copy activite that copies the whole container from your source to the destination (sink). If you're not familiar with this process, have a look at the following [documentation](https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-cosmos-db?tabs=data-factory)
