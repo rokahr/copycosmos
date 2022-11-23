@@ -28,7 +28,16 @@ The create container functions requires the same payload as the above mentioned 
   "url": "your_cosmos_endpoint",
   "key": "your_master_key",
   "db": "your_db_name",
-  "container":"your_container_to_delete_name"
+  "container":"your_container_to_delete_name",
   "partitionKey":"/your_partition_key"
 }
 ```
+
+## The pipeline
+As described in the intro, the pipeline first deletes a container, recreated a container with the correct partitionKey and hydrates the data afterwards. In a nutshell, the pipeline looks like that:
+
+![pipeline](images\overview.png)
+
+In the respective Web activities, the calls to the Azure Function are handled.
+For delete:
+![delete](images\delete.png)
