@@ -15,8 +15,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     dbs_iter=client.list_databases()
     dbs = []
     for db in dbs_iter:
-        dbs.append(db['id'])
+        dbs.append({'database':db['id']})
 
-    return func.HttpResponse(body=json.dumps(dbs), status_code=200)
+    return func.HttpResponse(body=json.dumps(dbs), status_code=200,mimetype='application/json')
 
 
